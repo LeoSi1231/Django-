@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="{% static 'css/index.css' %}"
+    />
+  </head>
+  <body>
+    <h1>Proyectos:</h1>
+    <a href="/proyectos/crear-proyecto/">
+      <button>Nuevo Proyecto</button>
+    </a>
+    <ul>
+      {% for proyecto in proyectos %}
+      <li>
+        <a href="http://localhost:8000/proyectos/{{proyecto.id}}"
+          >{{proyecto.nombre}}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>
